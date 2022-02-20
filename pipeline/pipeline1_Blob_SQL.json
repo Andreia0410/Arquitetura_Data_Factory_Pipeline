@@ -1,6 +1,146 @@
 {
 	"name": "pipeline1_Blob_SQL",
 	"properties": {
+		"activities": [
+			{
+				"name": "fake_customers CSV to SQL",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Names",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Names",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Age",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Age",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "Phone",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Phone",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Location",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Location",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Company",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Company",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Lot",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Lot",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sales",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sales",
+									"type": "Byte",
+									"physicalType": "tinyint"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "fake_customersCSV",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "fake_customersTable",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
 		"annotations": []
 	}
 }
