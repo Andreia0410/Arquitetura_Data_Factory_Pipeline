@@ -1,0 +1,52 @@
+{
+	"name": "fake_customersCSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "inputblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "fake_customers.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Names",
+				"type": "String"
+			},
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "Phone",
+				"type": "String"
+			},
+			{
+				"name": "Location",
+				"type": "String"
+			},
+			{
+				"name": "Company",
+				"type": "String"
+			},
+			{
+				"name": "Lot",
+				"type": "String"
+			},
+			{
+				"name": "Sales",
+				"type": "String"
+			}
+		]
+	}
+}
