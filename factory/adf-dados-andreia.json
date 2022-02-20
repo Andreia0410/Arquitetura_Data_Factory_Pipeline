@@ -1,0 +1,9 @@
+{
+	"name": "adf-dados-andreia",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4cbcb4f3-a5e6-4328-85ef-51086f16f2f3",
+		"tenantId": "5b973f99-77df-4beb-b27d-aa0c70b8482c"
+	}
+}
