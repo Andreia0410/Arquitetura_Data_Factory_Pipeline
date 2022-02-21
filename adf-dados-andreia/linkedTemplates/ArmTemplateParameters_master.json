@@ -5,10 +5,16 @@
 		"factoryName": {
 			"value": "adf-dados-andreia"
 		},
+		"Outputsql_connectionString": {
+			"value": ""
+		},
 		"inputblob_connectionString": {
 			"value": ""
 		},
-		"Outputsql_connectionString": {
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
 		"containerUri": {
